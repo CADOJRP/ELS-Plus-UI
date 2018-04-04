@@ -1,5 +1,4 @@
 var resourceName = "";
-var euro = false;
 
 function controlLights(state, light, color) {
     if (!state) {
@@ -15,9 +14,6 @@ function ToggleStage(stage) {
             $('#stage1').removeClass('stage-on').addClass('stage-off');
             $('#stage2').removeClass('stage-on').addClass('stage-off');
             $('#stage3').removeClass('stage-on').addClass('stage-off');
-            if (euro) {
-                $('#euro').removeClass('stage-on').addClass('stage-off');
-            }
             break;
         case 1:
             $('#stage1').removeClass('stage-off').addClass('stage-on');
@@ -33,9 +29,6 @@ function ToggleStage(stage) {
             $('#stage1').removeClass('stage-off').addClass('stage-on');
             $('#stage2').removeClass('stage-off').addClass('stage-on');
             $('#stage3').removeClass('stage-off').addClass('stage-on');
-            if (euro) {
-                $('#euro').removeClass('stage-off').addClass('stage-on');
-            }
             break;
     }
 }
@@ -115,13 +108,6 @@ $(function () {
             }
         } else if (event.data.type == "togglestage") {
             ToggleStage(event.data.stage);
-        } else if (event.data.type == "seteuro") {
-            euro = event.data.euro;
-            if (euro) {
-                $("#euro").show();
-            } else {
-                $("#euro").hide();
-            }
         }
     });
 
@@ -135,12 +121,10 @@ $(function () {
 
 
 $(document).ready(function () {
-    console.log("document ready running function");
     $("#togPri").bootstrapToggle({ on: 'PRM', off: 'PRM' });
     $("#togSec").bootstrapToggle({ on: 'SEC', off: 'SEC' });
     $("#togWrn").bootstrapToggle({ on: 'WRN', off: 'WRN' });
     $("#togHrn").bootstrapToggle({ on: 'HRN', off: 'HRN' });
     $("#togSrn").bootstrapToggle({ on: 'SRN', off: 'SRN' });
     $("#togSrm").bootstrapToggle({ on: 'SRM', off: 'SRM' });
-    $("#euro").hide();
 });
